@@ -10,7 +10,7 @@ import { InputGroup } from 'react-bootstrap';
 const GetForm = () => {
   const formdata = localStorage.getItem("MyForm")
   if (formdata) {
-    return JSON.parse(formdata)
+    return JSON.parse(formdata dd)
   } else {
     return [];
   }

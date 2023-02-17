@@ -5,7 +5,7 @@ import CRUD from './component/CRUD/CRUD';
 function App() {
   return (
     <>
-      <CRUD/>
+      <CRU/>
       
     </>
   );
