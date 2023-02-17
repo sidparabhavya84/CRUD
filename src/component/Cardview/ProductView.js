@@ -20,18 +20,20 @@ function ProductView() {
     return (
         <>
             <div className='bg-light- py-5'>
-                <h1 className='text-center'>Product Details</h1>
+                <h1 style={{marginLeft:'80px'}}>Product Details</h1>
             </div>
             <Container>
                 <div className='row'></div>
-                <div className='col-4 mx-auto mt-5'>
-                    <Card>
-                        <Card.Img variant='top' src={data.state.img}></Card.Img>
+                <div className='col-4'>
+                    <Card border=" success"  style={{padding:'10px'}}>
+                        <Card.Img variant='top' src={data.state.img} style={{ width: '50%',marginLeft:'25%'}}></Card.Img>
                         <Card.Body>
                             <Card.Title>{data.state.name}</Card.Title>
                             <Card.Text>{data.state.details}</Card.Text>
                             <Card.Text>{data.state.price}</Card.Text>
-                            <Button variant="primary" className="m-0 px-2 py-1" onClick={()=> {back()}}>Back</Button>
+                            <Card.Text>{data.state.rating}</Card.Text>
+
+                            <Button  className="mb-2"  variant="danger"  size="lg" onClick={()=> {back()}}>Back</Button>
                         </Card.Body>
                     </Card>
                 </div>

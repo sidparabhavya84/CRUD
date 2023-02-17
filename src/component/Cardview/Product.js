@@ -1,48 +1,53 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import {Button,Card,Container} from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 
 function Product() {
     const navigate = useNavigate();
 
-    const pro1 = () => {
-        console.log("called");
-        navigate("/ProductView", { state: { img: "img/item-1.jpg", name: "iphone 13", details: "best phone Ever", price: "110$" } })
+    const Iphone = () => {
+        navigate("/ProductView", { state: { img: "img/iphone.jpg", name: "iPhone 14 Pro", details: "iPhone 14 Pro. Pro. Beyond. iPhone 14 Pro. Capture incredible detail with a 48MP Main camera.Experience iPhone in a whole new way with Dynamic Island and Always-On display. ", price: "₹126,400", rating: "4.5" } })
     }
 
-    const pro2 = () => {
-        navigate("/ProductView", { state: { img: "img/item-2.jpg", name: "iphone 13", details: "best phone Ever", price: "110$" } })
-;
+    const macbook = () => {
+        navigate("/ProductView", { state: { img: "img/macbook.jpg", name: "Apple 2022 MacBook Pro Laptop", details: "13.3-inch Retina Display enables you to view every content with perfect clarity", price: "₹1,39,990", rating: "4.2" } })
+            
     }
 
-    const pro3 = () => {
-        navigate("/ProductView", { state: { img: "img/item-3.jpg", name: "iphone 13", details: "best phone Ever", price: "110$" } })
+    const watch = () => {
+        navigate("/ProductView", { state: { img: "img/watch.jpeg", name: "Starlight Aluminium Case with Sport Band", details: "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.", price: "₹45900.00", rating: "4.0" } })
 
     }
     return (
         <>
             <Container>
-                <h1>Products</h1>
+                <h1 style={{paddingBottom:'50px'}}>Products</h1>
                 <div className='row'>
-                    <Card className='col-4'>
-                        {/* <h1>sjdch</h1> */}
-                        <Card.Img variant='top' src='img/item-1.jpg'/>
-                        <Card.Body className='text-center'>
-                            <Button variant='dark' onClick={() => { pro1() }}>View</Button>
-                        </Card.Body>
-                    </Card>
-                    <Card className='col-4'>
-                        <Card.Img variant='top' src='img/item-2.jpg' />
-                        <Card.Body className='text-center'>
-                            <Button variant='dark' onClick={() => { pro2() }}>View</Button>
-                        </Card.Body>
-                    </Card>
-                    <Card className='col-4'>
-                        <Card.Img variant='top' src='img/item-3.jpg' />
-                        <Card.Body className='text-center'>
-                            <Button variant='dark' onClick={() => { pro3() }}>View</Button>
-                        </Card.Body>
-                    </Card>
+                    <div className='col-4'>
+                        <Card border="warning" style={{ padding: '10px' }}>
+
+                            <Card.Img variant='top' src='img/iphone.jpg' style={{ width: '80%', marginLeft: '8%' }} />
+                            <Card.Body className='text-center'>
+                                <Button variant='success' size="lg" className="mb-2" onClick={() => { Iphone() }}>View</Button>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className='col-4'>
+                        <Card border=" secondary" style={{ padding: '10px' }}>
+                            <Card.Img variant='top' src='img/macbook.jpg' style={{ width: '100%', marginLeft: '0%' }} />
+                            <Card.Body className='text-center'>
+                                <Button variant='success' size="lg" className="mb-2" onClick={() => { macbook() }}>View</Button>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className='col-4'>
+                        <Card border="danger" style={{ padding: '10px' }}>
+                            <Card.Img variant='top' src='img/watch.jpeg' style={{ width: '90%', marginLeft: '5%' }} />
+                            <Card.Body className='text-center'>
+                                <Button variant='success'size="lg" className="mb-2"  onClick={() => { watch() }}>View</Button>
+                            </Card.Body>
+                        </Card>
+                    </div>
 
                 </div>
             </Container>
