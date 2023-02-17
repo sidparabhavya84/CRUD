@@ -10,12 +10,12 @@ function Product() {
     }
 
     const macbook = () => {
-        navigate("/ProductView", { state: { img: "img/macbook.jpg", name: "Apple 2022 MacBook Pro Laptop", details: "13.3-inch Retina Display enables you to view every conatant with perfect clarity", price: "₹1,39,990", rating: "4.2" } })
+        navigate("/ProductView", { state: { img: "img/Macbook.jpeg", name: "Apple 2022 MacBook Pro Laptop", details: "13.3-inch Retina Display enables you to view every conatant with perfect clarity", price: "₹1,39,990", rating: "4.2" } })
             
     }
 
     const watch = () => {
-        navigate("/ProductView", { state: { img: "img/watch.jpeg", name: "Starlight Aluminium Case with Sport Band", details: "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.", price: "₹45900.00", rating: "4.0" } })
+        navigate("/ProductView", { state: { img: "img/iwatch.jpeg", name: "Starlight Aluminium Case with Sport Band", details: "The aluminium case is lightweight and made from 100 per cent recycled aerospace-grade alloy.", price: "₹45900.00", rating: "4.0" } })
 
     }
     return (
@@ -34,7 +34,7 @@ function Product() {
                     </div>
                     <div className='col-4'>
                         <Card border=" secondary" style={{ padding: '10px' }}>
-                            <Card.Img variant='top' src='img/macbook.jpg' style={{ width: '100%', marginLeft: '0%' }} />
+                            <Card.Img variant='top' src='img/Macbook.jpeg' style={{ width: '100%', marginLeft: '0%' }} />
                             <Card.Body className='text-center'>
                                 <Button variant='success' size="lg" className="mb-2" onClick={() => { macbook() }}>View</Button>
                             </Card.Body>
@@ -42,7 +42,7 @@ function Product() {
                     </div>
                     <div className='col-4'>
                         <Card border="danger" style={{ padding: '10px' }}>
-                            <Card.Img variant='top' src='img/watch.jpeg' style={{ width: '90%', marginLeft: '5%' }} />
+                            <Card.Img variant='top' src='img/iwatch.jpeg' style={{ width: '90%', marginLeft: '5%' }} />
                             <Card.Body className='text-center'>
                                 <Button variant='success'size="lg" className="mb-2"  onClick={() => { watch() }}>View</Button>
                             </Card.Body>

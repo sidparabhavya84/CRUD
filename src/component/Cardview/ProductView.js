@@ -16,7 +16,6 @@ function ProductView() {
     const back = () => {
         navigate(-1);
     }
-
     return (
         <>
             <div className='bg-light- py-5'>
