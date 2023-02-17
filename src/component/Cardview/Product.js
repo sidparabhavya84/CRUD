@@ -10,7 +10,7 @@ function Product() {
     }
 
     const macbook = () => {
-        navigate("/ProductView", { state: { img: "img/macbook.jpg", name: "Apple 2022 MacBook Pro Laptop", details: "13.3-inch Retina Display enables you to view every content with perfect clarity", price: "₹1,39,990", rating: "4.2" } })
+        navigate("/ProductView", { state: { img: "img/macbook.jpg", name: "Apple 2022 MacBook Pro Laptop", details: "13.3-inch Retina Display enables you to view every conatant with perfect clarity", price: "₹1,39,990", rating: "4.2" } })
             
     }
 

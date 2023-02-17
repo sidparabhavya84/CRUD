@@ -20,7 +20,7 @@ function ProductView() {
     return (
         <>
             <div className='bg-light- py-5'>
-                <h1 style={{marginLeft:'80px'}}>Product Details</h1>
+                <h1 style={{marginLeft:'80px'}}>Prooduct Details</h1>
             </div>
             <Container>
                 <div className='row'></div>
