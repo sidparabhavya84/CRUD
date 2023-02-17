@@ -42,13 +42,12 @@ function Product() {
                     </div>
                     <div className='col-4'>
                         <Card border="danger" style={{ padding: '10px' }}>
-                            <Card.Img variant='top' src='img/iwatch.jpeg' style={{ width: '90%', marginLeft: '5%' }} />
+                            <Card.Img variant='top' src='img/Iwatch.jpeg' style={{ width: '90%', marginLeft: '5%' }} />
                             <Card.Body className='text-center'>
                                 <Button variant='success'size="lg" className="mb-2"  onClick={() => { watch() }}>View</Button>
                             </Card.Body>
                         </Card>
                     </div>
-
                 </div>
             </Container>
         </>

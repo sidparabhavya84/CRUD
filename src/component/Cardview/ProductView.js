@@ -31,7 +31,6 @@ function ProductView() {
                             <Card.Text>{data.state.details}</Card.Text>
                             <Card.Text>{data.state.price}</Card.Text>
                             <Card.Text>{data.state.rating}</Card.Text>
-
                             <Button  className="mb-2"  variant="danger"  size="lg" onClick={()=> {back()}}>Back</Button>
                         </Card.Body>
                     </Card>
