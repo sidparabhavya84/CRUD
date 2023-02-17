@@ -1,16 +1,16 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom'; 
-import Product from './component/Cardview/Product';
-import ProductView from './component/Cardview/ProductView';
-
+import AddEmployee from './component/AddEmployee/AddEmployee';
+import EmpView from './component/AddEmployee/EmpView';
 
 function App() {
   return (
     <>
       
       <Routes>
-        <Route path="/Product" element={<Product/>}/>
-        <Route path="/ProductView" element={<ProductView/>}/>
+        <Route path='/AddEmployee' element={<AddEmployee/>}/>
+        <Route path='/EmpView' element={<EmpView/>}/>
+
       </Routes>
     </>
   );

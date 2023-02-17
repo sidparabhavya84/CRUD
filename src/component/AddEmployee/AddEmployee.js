@@ -1,130 +1,118 @@
-import React from 'react'
+    import { isValidInputTimeValue } from '@testing-library/user-event/dist/utils';
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 import { NavLink, useNavigate } from 'react-router-dom';
-import GetForm from '../../utils/getdata';
+import GetData from '../utils/GetData';
+
 
 
 function AddEmployee() {
 
     const [initial, setInitial] = useState({
-        name : '',
+        name: '',
         email: '',
         mobile: '',
         address: '',
-        gender: '',
+        gender: ''
     })
-
-    const [isSubmit, setIsSubmit] = useState(false);
-    const [store, setStore] = useState(GetForm);
-
     const navigate = useNavigate();
 
-    const handleChange = (e) =>{
-        const name = e.target.name;
-        const value = e.target.value;
-        setInitial({...initial, [name] : value});
-    }   
+    const [isSubmit, setIsSubmit] = useState(false);
+    const [storeData, setStoreData] = useState(GetData)
 
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        const {name, email, mobile, gender, address} = initial;
-       
-        if(name == '' || email == '' || mobile == '' || gender == '' || address == ''){
-            console.error("Enter Value...");
+    const handleChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        setInitial({ ...initial, [name] : value , id : new Date().toLocaleTimeString() })
+    }
 
-        }
-        else{
-            setStore([...store, initial]);
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const {name, email, mobile, gender, address} = initial
+
+        if (name === '' || email ==='' || mobile === '' || gender === '' || address === '') {
+            console.error("Enter Value.....!");
+        } else {
+            setStoreData([...storeData, initial])
             setIsSubmit(true);
             setInitial({
-                name : '',
-            email: '',
-            mobile: '',
-            address: '',
-            gender: '',
-            })
-
-            
+                name: '',
+                email: '',
+                mobile: '',
+                address: '',
+                gender: ''
+            })    
+            // navigate("/EmpView", {state : {data : [...storeData, initial]}})
         }
-        
     }
-    
     useEffect(() =>{
-        console.log("store useEfect");
-        localStorage.setItem("crud", JSON.stringify(store));
+        console.log("storeData useEfect");
+        localStorage.setItem("crud", JSON.stringify(storeData));
         if(isSubmit){
-            navigate("/Empview");
+            navigate("/EmpView");
         }
-    },[store])
-    // useEffect(() =>{
-    //     navigate("/empview", { state: {data : store}});
-    // }, [store])
+    },[storeData])
+    // console.log(storeData);
 
     return (
         <>
             <Container>
-                <NavLink to="/">
-                    Back
-                </NavLink>
-                <h1>
-                    Add Employee Details
-                </h1>
+                <h1>Add Employee Details</h1>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" name="name" value={initial.name} onChange={handleChange}/>
+                        <Form.Label>Name :</Form.Label>
+                        <Form.Control type="text" placeholder="Enter name" name='name' value={initial.name} onChange={handleChange} />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Email" name='email' value={initial.email} onChange={handleChange} />
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email :</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" name='email' value={initial.email} onChange={handleChange} />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Mobile No</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Mobile" name='mobile' value={initial.mobile} onChange={handleChange}/>
+                    <Form.Group className="mb-3" controlId="formBasicMobile">
+                        <Form.Label>Mobile No :</Form.Label>
+                        <Form.Control type="text" placeholder="Enter mobile number" name='mobile' value={initial.mobile} onChange={handleChange} />
                     </Form.Group>
 
-                    <Form.Group className="mb-3">
-                        <Form.Label>Gender :</Form.Label>
-                        <div>
+                    <Form.Group className="mb-3" controlId="formBasicAddress">
+                        <Form.Label>Address :</Form.Label>
+                        <Form.Control type="text" placeholder="Enter address" name='address' value={initial.address} onChange={handleChange} />
+                    </Form.Group>
 
-                            <Form.Check
-                                inline
-                                label="Male"
-                                name="gender"
-                                type="radio"
-                                value="male"
-                                onChange={handleChange}
-                                checked={initial.gender === "male"}
+                    <Form.Label>Gender : </Form.Label>
+                    <Form.Group>
+                        <Form.Check
+                            inline
+                            label="Male"
+                            name="gender"
+                            type='radio'
+                            value="male"
+                            checked = {initial.gender === 'male'}
+                            onChange={handleChange}
                             />
-                            <Form.Check
-                                inline
-                                label="Female"
-                                name="gender"
-                                type="radio"
-                                value="female"
-                                onChange={handleChange}
-                                checked={initial.gender === "female"}
-                            />
-                        </div>
+                        <Form.Check
+                            inline
+                            label="Female"
+                            name="gender"
+                            type='radio'
+                            value="female"
+                            checked = {initial.gender === 'female'}
+                            onChange={handleChange}
+                        />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Address</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Address" name='address' value={initial.address} onChange={handleChange}/>
-                    </Form.Group>
+                    <br />
 
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
-
                 </Form>
             </Container>
         </>
+
     )
+
 }
 
-
-export default AddEmployee;
+export default AddEmployee
